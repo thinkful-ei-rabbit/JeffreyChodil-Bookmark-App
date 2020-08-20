@@ -1,0 +1,30 @@
+body {
+  background-image: url("img/books-background.jpg");
+  background-color: #f2eecb;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.banner {
+  font-size: 4.2rem;
+  background-color: #000000;
+  color: #ffff00;
+}
+
+#top-menu {
+  background-color: #4e80a1;
+}
+
+.yellow-pad {
+  background-image: url("img/yellow-pad.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  height: 50rem;
+}
+
+ul li {
+  list-style: none;
+  justify-content: space-between;
+}
