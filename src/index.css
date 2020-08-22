@@ -9,11 +9,19 @@ body {
 .banner {
   font-size: 4.2rem;
   background-color: #000000;
-  color: #ffff00;
+  color: #ffff00;  
 }
 
-#top-menu {
+.banner, .container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.top-menu {
+  display: flex;
   background-color: #4e80a1;
+  justify-content: space-around
 }
 
 .yellow-pad {
@@ -24,7 +32,33 @@ body {
   height: 50rem;
 }
 
-ul li {
+.list-events {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+ul {
+  margin-right: 5%;  
+}
+
+li { 
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem 0;
   list-style: none;
   justify-content: space-between;
+  background-color: #ffff00;
+  border: solid;
+}
+
+.description {
+  text-align: left;
+  justify-content: center;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+#expanded {
+  display: block;
+  border: solid;     
 }

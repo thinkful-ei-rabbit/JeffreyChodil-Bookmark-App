@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark Wireframe</title>
+  <script src="https://kit.fontawesome.com/a722b2e38b.js" crossorigin="anonymous"></script>
+  <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <article class="yellow-pad">
+    <h1 class="banner">My Bookmarks</h1>
+    <div class="container">
+      <!-- Accept new bookmark entry or edit of existing bookmark entry -->
+      <form id="js-new-bookmark-form">
+        <div class="error-container">Error<br>Messages<br>Go Here</div>
+        <label for="new-bookmark-entry">Add New Bookmark:</label>
+        <br>
+        <input type="text" name="new-bookmark-name" class="js-new-bookmark-name" placeholder="Bookmark Name">
+        <br>
+        <input type="url" name="new-bookmark-url" class="js-new-bookmark-url"
+          placeholder="http://newBookmarkAddress.com">
+        <br>        
+        <div class="rate">
+          <input type="radio" id="star5" name="rate" value="5" required>
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4">
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3">
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2">
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1">
+          <label for="star1" title="text">1 star</label>
+        </div>
+        <p>Rating
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </p>
+        <label for="Description"></label>
+        <textarea id="new-bookmark-description" name="new-bookmark-description" rows="4" cols="50" placeholder="Add a description (optional)"></textarea>
+        <br>
+        <button type="submit">Create</button>
+        <button type="reset" value="cancel">Cancel</button>
+      </form>
+      <!-- <p>This icon is for edits</p>
+      <i class="far fa-edit"></i>
+      <p>This icon is for edits on-click</p>
+      <i class="fas fa-edit"></i>
+      <p>This icon is for empty stars</p>
+      <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
+      <i class="far fa-star"></i>
+      <i class="far fa-star checked"></i>
+      <p>This icon is for filled stars</p>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i>
+      <p>This icon is an empty bookmark</p>
+      <i class="far fa-bookmark"></i>
+      <p>This icon is for bookmark on-click</p>
+      <i class="fas fa-bookmark"></i>
+      <p>This icon is for deleting a bookmark</p>
+      <i class="fas fa-eraser"></i> -->
+    </div>
+  </article>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

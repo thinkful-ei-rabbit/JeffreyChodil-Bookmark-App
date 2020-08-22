@@ -1,16 +1,19 @@
 import $ from 'jquery';
 import '../index.css';
 
+import store from './store';
 import bookmarkList from './bookmark-list';
 import api from './api';
-import store from './store';
 
-const main = function() {  
+const main = function() {
+  
   api.getBookmarks()
   .then((items) => {
     items.forEach((item) => store.addBookmark(item));
     bookmarkList.render();
-  });
+  }); 
+  
+  bookmarkList.bindEventListeners();  
 };
 
 $(main);

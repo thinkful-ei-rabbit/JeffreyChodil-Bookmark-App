@@ -3,7 +3,7 @@
 'use strict';
 const BASE_URL = 'https://thinkful-list-api.herokuapp.com/jeffrey/bookmarks';
 
-const apiFetchWrapper = function (...args) {
+const apiFetchWrapper = function(...args) {
   let error;
   return fetch(...args)
     // filters for json responses
@@ -21,8 +21,8 @@ const apiFetchWrapper = function (...args) {
       if (error) {
         error.message = data.message;
         return Promise.reject(error);
-      }
-      return data;
+      }      
+      return data;      
     });
 };
 
@@ -30,8 +30,12 @@ const getBookmarks = function() {
   return apiFetchWrapper(BASE_URL);
 }
 
-const createBookmark = function() {
-  const newBookmark = JSON.stringify({ "title": "Amazon", "url": "http://www.amazon.com", "desc": "For everything you didnt know you need", "rating": "4"});
+const createBookmark = function(data) {
+  const newBookmark = JSON.stringify({data}); 
+  //   "title": "facebook", 
+  //   "url": "http://www.facebook.com", 
+  //   "desc": "The lives of the not-so-rich and not-so-famous", 
+  //   "rating": "3"});
   return apiFetchWrapper(`${BASE_URL}`, {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
@@ -39,7 +43,15 @@ const createBookmark = function() {
   });
 };
 
+const deleteItem = function(id) {
+  return apiFetchWrapper(`${BASE_URL}/${id}`, {
+    METHOD: 'DELETE',
+    headers: {'Content-Type': 'application/json'}
+  });
+}
+
 export default {
   getBookmarks,
-  createBookmark
+  createBookmark,
+  deleteItem
 }

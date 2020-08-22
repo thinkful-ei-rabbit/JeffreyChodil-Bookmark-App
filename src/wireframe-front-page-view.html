@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark Wireframe</title>
+  <script src="https://kit.fontawesome.com/a722b2e38b.js" crossorigin="anonymous"></script>
+  <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <article class="yellow-pad">
+    <h1 class="banner">My Bookmarks</h1>
+    <div class="container">
+      <div class="error-container hidden"></div>
+      <div id="top-menu">        
+      <button type="button" id="toggle-new-bookmark">New <i class="far fa-bookmark"></i></button>
+      <label for="filter"></label>
+      <select name="filter" id="filter">
+        <option value="none" selected disabled hidden>Filter</option>
+        <option value=0>View All</option>
+        <option value=1>1 Star</option>
+        <option value=2>2+ Stars</option>
+        <option value=3>3+ Stars</option>
+        <option value=4>4+ Stars</option>
+        <option value=5>5 Stars</option>
+      </select>
+      </div>
+
+      <ul class="bookmark-list js-bookmark-list">
+        <li class="js-bookmark-element"><span class="bookmark-title">Google</span><span id="rating">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></div>
+        </li>
+
+        <li class="js-bookmark-element"><span class="bookmark-title">Amazon</span><span id="rating">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></div>
+          </li>
+
+        <li class="js-bookmark-element"><span class="bookmark-title">Youtube</span><span id="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li>
+
+        <li class="js-bookmark-element" id="expanded"><span class="bookmark-title">Pigitus Latinus ookBay</span>
+          <span id="rating">
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></span></div>        
+        <div class="expanded-buttons"><button type="button">Visit Site</button>
+        <button type="button" id="erase-bookmark">Erase <i class="fas fa-eraser"></i></button>
+        <button type="button" id="erase-bookmark">Edit <i class="far fa-edit"></i></i></button>
+        </div>
+        <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </li>
+
+        <li class="js-bookmark-element"><span class="bookmark-title">Bookmark Title 5</span><span id="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></span></li>
+      </ul>
+
+      
+      <!-- <p>This icon is for edits</p>
+      <i class="far fa-edit"></i>
+      <p>This icon is for edits on-click</p>
+      <i class="fas fa-edit"></i>
+      <p>This icon is for empty stars</p>
+      <i class="far fa-star"></i>      
+      <p>This icon is for filled stars</p>
+      <i class="fas fa-star"></i>
+      
+      <p>This icon is an empty bookmark</p>
+      <i class="far fa-bookmark"></i>
+      <p>This icon is for bookmark on-click</p>
+      <i class="fas fa-bookmark"></i>
+      <p>This icon is for deleting a bookmark</p>
+      <i class="fas fa-eraser"></i> -->
+
+    </div>
+  </article>
+
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
