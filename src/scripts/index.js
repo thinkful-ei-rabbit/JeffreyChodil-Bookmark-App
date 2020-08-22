@@ -5,8 +5,7 @@ import store from './store';
 import bookmarkList from './bookmark-list';
 import api from './api';
 
-const main = function() {
-  
+const main = function() {  
   api.getBookmarks()
   .then((items) => {
     items.forEach((item) => store.addBookmark(item));

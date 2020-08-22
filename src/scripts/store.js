@@ -2,7 +2,7 @@
 
 let items = [];
 // let expandView = false;
-let newBookmarkToggle = true;
+let newBookmarkToggle = false;
 const error = null;
 let filter = 0;
 

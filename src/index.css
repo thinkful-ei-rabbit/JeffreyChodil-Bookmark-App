@@ -62,3 +62,8 @@ li {
   display: block;
   border: solid;     
 }
+
+.error-container {
+  color: #ffffff;
+  background-color: #ff0000;
+}

@@ -37,7 +37,7 @@ const generateTopMenu = function() {
           placeholder="http://newBookmarkAddress.com" required>
         <br>        
         <div class="rate">
-        <label for="rating" name="rating">Rating; </label>
+        <label for="rating" name="rating" id="new-bookmark-rating">Rating; </label>
         ${generateStarRatingRadio()}
         </div>        
         <label for="description"></label>
@@ -147,6 +147,18 @@ const handleNewBookmarkSubmit = function() {
   $('#js-new-bookmark-form').submit(event => {
     console.log("handleNewBookmarkSubmit!");
     event.preventDefault();
+    // const title = $('.js-new-bookmark-name').val();
+    // const url = $('.js-new-bookmark-url').val();
+    // const rating = $('.new-bookmark-rating').val();
+    // const desc = $('.new-bookmark-description').val();
+    // const newBookmark = {
+    //   "title": title,
+    //   "url": url,
+    //   "rating": rating,
+    //   "desc": desc
+    // };
+    // console.log(newBookmark);
+    
     const newBookmark = $('#js-new-bookmark-form').serialize();
     api.createBookmark(newBookmark)
       .then((newEntry) => {
@@ -164,8 +176,7 @@ const handleToggleCreateNew = function() {
   $('.return-default, #toggle-new-bookmark').on('click', event => {
     event.preventDefault();
     console.log("handleToggleCreateNew!");    
-    store.newBookmarkToggle = !store.newBookmarkToggle;
-    // store.toggleCheckedExpand();
+    store.newBookmarkToggle = !store.newBookmarkToggle;    
     render();
   });
 };

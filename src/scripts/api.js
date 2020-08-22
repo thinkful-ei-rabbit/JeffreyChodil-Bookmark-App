@@ -32,10 +32,10 @@ const getBookmarks = function() {
 
 const createBookmark = function(data) {
   const newBookmark = JSON.stringify({data}); 
-  //   "title": "facebook", 
+  //   {"title": "facebook", 
   //   "url": "http://www.facebook.com", 
   //   "desc": "The lives of the not-so-rich and not-so-famous", 
-  //   "rating": "3"});
+  //   "rating": "3"}
   return apiFetchWrapper(`${BASE_URL}`, {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
