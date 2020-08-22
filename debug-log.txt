@@ -1,0 +1,42 @@
+DEBUG LIST
+
+I. Render and Display Default Home Screen
+Ia. Render and Display Top Menu Bar
+- At <div class="container"> 
+!!Top Menu Bar contains ("Create New" button) and ("Filter" dropdown)!!
+-- Ia1. On [index.js] ("main" function) calls ("render" function) from [bookmark-list.js]
+-- Ia2. On [bookmark-list.js] ("render" function) calls ("generateTopMenu" function)
+	-- Ia3. ("generateTopMenu" function) declares (const "topDefaultMenu")
+	-- Ia3. (const "topDefaultMenu") is assigned HTML for ("Create New" button) and ("Filter" dropdown).
+	-- Ia3. return ("topDefaultMenu") to ("render" function)
+	-- Ia4. assign returned value to new (const "html" variable)
+	-- Ia5. render ("html) to <div class="container">
+==COMPLETE Render and Display Top Menu Bar==
+
+Ib. Test event listeners for Top Menu Bar ("New Bookmark" button) only
+- At <button id="toggle-new-bookmark">
+!!Test event listener targeting ("New Bookmark" button)!!
+-- Ib1. On [index.js] ("main" function) calls ("bindEventListeners" function) from [bookmark-list.js](imported as "bookmarkList")
+-- Ib2. On [bookmark-list.js] ("bindEventListeners" function) calls ("handleToggleCreateNew" function)
+	-- Ib3. ("handleToggleCreateNew function) listens to ('#toggle-new-bookmark' button id)
+	-- Ib3a. Log click.
+==COMPLETE Test event listener for ("New Bookmark" button)==
+
+Ic. Use ("New Bookmark" button) to toggle and render ("New Bookmark Form")
+- At <div class="container">
+!!Toggle and render ("New Bookmark Form") upon prior event!!
+-- Ic1. On [store.js] (let "newBookmarkToggle"=false)
+-- Ic1. On [bookmark-list.js] upon ("handleToggleCreateNew") activating,
+-- Ic1. Toggle value of ("newBookmarkToggle")
+-- Ic2. Render with changed value
+@@ISSUE@@
+value of ("newBookmarkToggle") is only changed once, then event listener is unresponsive.
+--- Progress: Assign event listener ("handleToggleCreateNew") to higher parent <div class="container">
+	--- If assignment is one level lower to <div class="top-menu">, event listener does not reset
+	--- HYPOTHESIS: When the target containers are re-rendered, the event listeners don't reset.
+	--- Progress: If ("render()") is disabled in the ("handleToggleCreateNew" function), the event listener continues to respond, but the page will stall there.
+--
+--
+Toggle works to go from default page to new bookmark form, but only once. Listeners don't refresh upon re-rendering.
+
+

@@ -1,7 +1,6 @@
 'use strict';
 
 let items = [];
-// let expandView = false;
 let newBookmarkToggle = false;
 const error = null;
 let filter = 0;

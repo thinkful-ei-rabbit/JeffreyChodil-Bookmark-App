@@ -44,13 +44,14 @@ const generateTopMenu = function() {
         <textarea id="new-bookmark-description" name="desc" rows="4" cols="50" placeholder="Add a description (optional)"></textarea>
         <br>
         <button type="submit" class="submit-new">Create</button>
-        <button type="reset" value="cancel" class="return-default">Cancel</button>
+        <button type="reset" value="cancel" id="return-default">Cancel</button>
       </form>
       `;
     return topDefaultMenu;
   } else
     // If no bookmark list items are expanded, generate default menu
     if (store.newBookmarkToggle === false) {
+  console.log("Ia3. [bookmark-list.js] DEBUG from generateTopMenu()");
       const topDefaultMenu = `
       <div class="error-container"></div>
       <div class="top-menu"><button type="button" id="toggle-new-bookmark">New <i class="far fa-bookmark"></i></button>
@@ -64,7 +65,7 @@ const generateTopMenu = function() {
     <option value=5>5 Stars</option>
     </select>
     </div>
-   `;
+    `;
       return topDefaultMenu;
     }
 };
@@ -95,10 +96,6 @@ const generateBookmarkElement = function(item) {
 const generateBookmarkList = function(bookmarkList) {
   const items = bookmarkList.map((item) => generateBookmarkElement(item));
   return items.join('');
-  // Callback function to populate bookmark list items
-  // let bookmarkList =
-  // `<ul><li class="js-bookmark-element"><span class="bookmark-title">Bookmark Title 1</span><span id="rating"><i class="far fa-star"></i><i class="far fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span></li></ul>`;
-  // return bookmarkList;
 };
 
 const generateError = function(message) {
@@ -127,11 +124,14 @@ const handleCloseError = function() {
 };
 
 const render = function() {
+  console.log("Ia2. [bookmark-list.js] DEBUG from render()");
   renderError();
   let items = [...store.items];
   const html = generateTopMenu();
-  const listHtml = generateBookmarkList(items);  
+  const listHtml = generateBookmarkList(items);
+  console.log("Ia4. [bookmark-list.js] DEBUG from render() display top menu");
   $('.container').html(html);
+  console.log("Ia5. [bookmark-list.js] COMPLETE render top menu");
   if (store.newBookmarkToggle === false) {
     $('.js-bookmark-list').html(listHtml);
   }  
@@ -146,19 +146,7 @@ const getItemIdFromElement = (item) => {
 const handleNewBookmarkSubmit = function() {
   $('#js-new-bookmark-form').submit(event => {
     console.log("handleNewBookmarkSubmit!");
-    event.preventDefault();
-    // const title = $('.js-new-bookmark-name').val();
-    // const url = $('.js-new-bookmark-url').val();
-    // const rating = $('.new-bookmark-rating').val();
-    // const desc = $('.new-bookmark-description').val();
-    // const newBookmark = {
-    //   "title": title,
-    //   "url": url,
-    //   "rating": rating,
-    //   "desc": desc
-    // };
-    // console.log(newBookmark);
-    
+    event.preventDefault();    
     const newBookmark = $('#js-new-bookmark-form').serialize();
     api.createBookmark(newBookmark)
       .then((newEntry) => {
@@ -172,7 +160,17 @@ const handleNewBookmarkSubmit = function() {
   });
 };
 
-const handleToggleCreateNew = function() {  
+const handleToggleCreateNew = function() {
+  console.log("handleToggleCreateNew is listening");
+  console.log("Ib3. [bookmark-list.js] DEBUG event listener from handleToggleCreateNew()");
+  $('#toggle-new-bookmark, #return-default').click(() => {
+    event.preventDefault();
+    console.log("Ib3a. [bookmark-list.js] DEBUG Click heard from .#toggle-new-bookmark");
+    store.newBookmarkToggle = !store.newBookmarkToggle;
+    console.log("Ic1. [bookmark-list.js] Toggle new bookmark form");
+    console.log(store.newBookmarkToggle);
+    render();
+  })
   $('.return-default, #toggle-new-bookmark').on('click', event => {
     event.preventDefault();
     console.log("handleToggleCreateNew!");    
@@ -187,7 +185,7 @@ const handleToggleExpandView = function() {
     const id = getItemIdFromElement(event.currentTarget);
     let item = store.findById(id);
     item.expand = !item.expand;
-    render()
+    render();
   });
 };
 
@@ -219,7 +217,7 @@ const handleDeleteItemClicked = function() {
 };
 
 const bindEventListeners = function() {
-  console.log("bindEventListeners is listening!");
+  console.log("Ib2. [bookmark-list.js] DEBUG event listener from bindEventListeners()");
   handleToggleCreateNew();
   handleDropdownSelect();  
   handleNewBookmarkSubmit();
